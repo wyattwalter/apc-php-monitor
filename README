@@ -1,0 +1,21 @@
+apc-php-monitor
+
+A Nagios-style plugin for monitoring APC opcode caching stats. I developed it for use with Zenoss (so install example is using Zenoss), but should work with anything that is compatible with Nagios. In the future, I may build this out as a Zenpack, but for now it's all manual. 
+
+
+Installation
+- Install apc_stats.php in some directory on web server. Be sure script returns array of APC info.
+
+- Install check_apc.php on Zenoss server and make accessible to Zenoss server (/home/zenoss/check_apc.php).
+- In Zenoss, add a Monitoring Template for APC and create a template with type Command
+- Add data source called apc_stats.php
+- Command Template: /usr/bin/php -f /home/zenoss/scripts/apc_stats.php ${dev/id}
+- Create data point called "hit_ratio"
+- Create graph
+- Add graph point for apc_stats.php_hit_ratio
+- Apply template to devices
+- Enjoy!
+
+License
+
+
