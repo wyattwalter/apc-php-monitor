@@ -6,7 +6,7 @@ if(count($argv) < 2 or $argv[1]=="help"){
 }
 
 $host = $argv[1];
-$url = "http://" . $host . "/apcstat.php";
+$url = "http://" . $host . "/apc_stats.php";
 
 $results = file_get_contents($url) or die("server is not responding");
 
